@@ -1,4 +1,31 @@
+import { useState } from 'react';
+
 export default function App() {
+
+  function postForm() {
+
+    const [formData, setFormData] = useState({
+      author: "",
+      title: "",
+      body: "",
+      public: false,
+    })
+  }
+
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value,
+    });
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+  }
+
   return (
     <>
       <div className="container mt-5">
