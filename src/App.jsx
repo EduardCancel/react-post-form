@@ -56,7 +56,7 @@ export default function App() {
             <textarea name="body" className="form-control" required onChange={handleFormData}></textarea>
           </div>
           <div className="form-check mb-3">
-            <input type="checkbox" name="public" className="form-check-input" onChange={handleFormData} />
+            <input type="checkbox" name="public" className="form-check-input" checked={dataForm.public} onChange={handleFormData} />
             <label className="form-check-label">Rendi pubblico</label>
           </div>
           <button type="submit" className="btn btn-primary">Invia</button>
