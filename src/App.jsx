@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Importa Bootstrap
 
 export default function App() {
 
@@ -39,31 +40,56 @@ export default function App() {
   }
 
   return (
-    <>
-      <div className="container mt-5">
-        <h2 className="mb-4">Crea un nuovo post</h2>
-        <form onSubmit={handleFormSubmit}>
-          <div className="mb-3">
-            <label className="form-label">Autore</label>
-            <input type="text" name="author" className="form-control" required onChange={handleFormData} />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Titolo</label>
-            <input type="text" name="title" className="form-control" required onChange={handleFormData} />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Testo del post</label>
-            <textarea name="body" className="form-control" required onChange={handleFormData}></textarea>
-          </div>
-          <div className="form-check mb-3">
-            <input type="checkbox" name="public" className="form-check-input" checked={dataForm.public} onChange={handleFormData} />
-            <label className="form-check-label">Rendi pubblico</label>
-          </div>
-          <button type="submit" className="btn btn-primary">Invia</button>
-        </form>
-      </div>
-
-    </>
-
+    <div className="container mt-5">
+      <h1 className="mb-4">Crea un nuovo post</h1>
+      <form onSubmit={handleFormSubmit}>
+        <div className="mb-3">
+          <label className="form-label">Titolo:</label>
+          <input
+            type="text"
+            name="title"
+            className="form-control"
+            value={dataForm.title}
+            onChange={handleFormData}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Autore:</label>
+          <input
+            type="text"
+            name="author"
+            className="form-control"
+            value={dataForm.author}
+            onChange={handleFormData}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Testo:</label>
+          <textarea
+            name="body"
+            className="form-control"
+            value={dataForm.body}
+            onChange={handleFormData}
+            required
+          />
+        </div>
+        <div className="form-check mb-3">
+          <input
+            type="checkbox"
+            name="public"
+            className="form-check-input"
+            checked={dataForm.public}
+            onChange={handleFormData}
+            required
+          />
+          <label className="form-check-label">Pubblico</label>
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Invia
+        </button>
+      </form>
+    </div>
   );
 }
